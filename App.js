@@ -5,7 +5,7 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   const fetchUser = (jwtToken) => {
-    fetch("http://localhost:5000/me", {
+    fetch(`${process.env.REACT_APP_API_URL}/me`, {
       headers: { Authorization: `Bearer ${jwtToken}` }
     })
       .then(res => res.json())
@@ -19,7 +19,7 @@ function App() {
   };
 
   const refreshToken = () => {
-    fetch("http://localhost:5000/refresh", { credentials: "include" })
+    fetch(`${process.env.REACT_APP_API_URL}/refresh`, { credentials: "include" })
       .then(res => res.json())
       .then(data => {
         if (data.token) {
@@ -47,7 +47,7 @@ function App() {
   }, [token]);
 
   const handleLogin = (os_key) => {
-    window.location.href = `http://localhost:5000/login/${os_key}`;
+    window.location.href = `${process.env.REACT_APP_API_URL}/login/${os_key}`;
   };
 
   const logout = () => {
