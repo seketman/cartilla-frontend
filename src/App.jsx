@@ -70,7 +70,7 @@ function App() {
           </li>
           <li>
             <button onClick={() => handleLogin('osde')}>
-              Iniciar sesión con Microsoft (OSDE)
+              Iniciar sesión con Microsoft (Otros)
             </button>
           </li>
         </ul>
